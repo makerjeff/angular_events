@@ -1,5 +1,8 @@
 //local storage controller
 app.controller('LocalStorageController', ['$scope', function($scope) {
+
+    var key = 'app_data';
+
     var bins = [
         {type:'bolt', units:2},
         {type:'nut', units:5},
@@ -8,15 +11,35 @@ app.controller('LocalStorageController', ['$scope', function($scope) {
 
     ];
 
+
+
     $scope.bins = bins;
 
 
-
-    $scope.StoreInfo = function(data) {
-        var value = data;
-        console.log('storing ' +  value);
+    //scoped functions
+    $scope.StoreInfo = function(index, item, value) {
+        console.log(index + ': ' + item + ':' + value);
     };
 
+    //decrease
 
+    $scope.DecreaseStock = function(index, stock) {
+        bins[index].units = stock;
+    }
+    //increase
 
 }]);
+
+// === HELPER FUNCTIONS ===
+//
+
+//store local data
+function StoreData(key, dataArray) {
+    localStorage.setItem(key, JSON.stringify(dataArray));
+}
+
+//retreive local data
+function RetrieveData(key) {
+    return JSON.parse(localStorage.getItem(key));
+
+}
