@@ -1,0 +1,17 @@
+<!-- this partial already knows to use the controller 'ViewController' thanks to routing-->
+
+<section>
+	<h1>view partial!</h1>
+	<p>You're looking at some information.</p>
+
+	<div class="box" ng-repeat="technology in technologies">
+		{{technology.name}}:{{technology.likes}}:{{technology.dislikes}}
+
+		<!-- the 'technology' argument is pulled from the ng-repeat-->
+		<button ng-click="incrementLikes(technology)">Like</button>
+		<button ng-click="decrementLikes(technology)">Hate</button>
+		<button ng-click="incrementDislikes(technology)">Dislike</button>
+
+	</div>
+
+</section>

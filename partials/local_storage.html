@@ -1,0 +1,6 @@
+<section>
+	<div ng-repeat="bin in bins">
+		{{bin.type}}: <input type="number" value="{{bin.units}}" ng-model="model_units">
+		<button ng-click="StoreInfo(model_units)">store</button>
+	</div>
+</section>
