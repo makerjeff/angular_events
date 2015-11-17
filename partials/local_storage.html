@@ -1,9 +1,9 @@
 <section>
-	<div ng-repeat="bin in bins">
+	<div class="block" ng-repeat="bin in bins track by $index">
 		{{bin.type}}: <input type="number" value="{{bin.units}}"
 							 ng-model="stock"
 							 ng-init="stock = bin.units">
-		<button ng-click="IncreaseStock($index, stock)">+</button>
-		<button ng-click="DecreaseStock($index, stock)">-</button>
+		<button ng-click="IncreaseStock($index, bin.units)">+</button>
+		<button ng-click="DecreaseStock($index, bin.units)">-</button>
 	</div>
 </section>
